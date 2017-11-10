@@ -35,15 +35,35 @@ class AddUserComponent extends React.Component {
 	}
 }
 
-class User extends React.Component {
+class Footer extends React.Component {
+
     render() {
         return (
-            <View key={this.props.key}>
-                <Image source={require("./img1_2x.jpg")}></Image>
-                <Button
-                    large
-                    lefticon={{name: 'envira', type: 'font-awesome'}}
-                    title='Request' />
+            <View style={{flexDirection: 'row'}}>
+                <Image source={require("./compass.svg")}></Image>
+                <Image source={require("./message.svg")}></Image>
+                <Image source={require("./friends.svg")}></Image>
+            </View>
+        )
+    }
+}
+
+class User extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <View key={this.props.idx}>
+                <View style={{flexDirection: 'row'}}>
+                    <Image source={require("./img1_2x.jpg")}></Image>
+                    <Button
+                        large
+                        lefticon={{name: 'envira', type: 'font-awesome'}}
+                        title='Request' />
+                </View>
+                <Text>{this.props.description}</Text>
             </View>
         )
     }
@@ -54,7 +74,7 @@ class UserList extends React.Component {
     render() {
         let userList = [];
         for(let i = 0; i < 4; i++) {
-            userList.push(<User key={i}></User>);
+            userList.push(<User idx={i} description={"A description: " + i}></User>);
         }
         return (
             <View>
@@ -76,6 +96,7 @@ export default class App extends React.Component {
               backgroundColor='#2BAD86'
           />
           <UserList></UserList>
+          <Footer></Footer>
       </View>
     );
   }
