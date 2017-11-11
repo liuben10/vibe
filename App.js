@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, ScrollView} from 'react-native';
 import { Header, Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import DiscoverButton from './discover/discoverButton';
+import Banner from './Banner';
 
 /**
  * For reference on how to define constructors and stuff.
@@ -145,25 +147,6 @@ class User extends React.Component {
             </View>
         )
     }
-}
-
-
-class DiscoverButton extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
-	render() {
-		return (
-            <View>
-                <Button
-                    raised
-                    onPress={this.props.discoverSelect}
-                    icon={{name: 'cached'}}
-                    title='Discover Select' />
-            </View>
-		)
-	}
 }
 
 class FriendsButton extends React.Component {
