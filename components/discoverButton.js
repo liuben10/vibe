@@ -1,8 +1,9 @@
-import React from 'react';
-import {View} from 'react-native';
+import React, {Component} from 'react';
+import { View} from 'react-native';
+//TODO use ListView
 import { Button } from 'react-native-elements';
 
-class DiscoverButton extends React.Component {
+class DiscoverButton extends Component {
 	constructor(props) {
 		super(props);
 	}
