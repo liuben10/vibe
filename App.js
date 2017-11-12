@@ -1,20 +1,27 @@
-import React from 'react';
-import { AppRegistry } from 'react-native';
+import React, {Component} from 'react';
 import { StyleSheet, Text, View, Image, ScrollView} from 'react-native';
+//TODO use ListView
 import { Header, Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DiscoverButton from './components/discover/discoverButton';
+import { bindActionCreators } from 'redux';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, combinReduxers, compose } from 'redux';
 import createLogger from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 import reducer from './reducers';
+import {ActionCreators} from "./actions/index";
 
 const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__});
 
 const DISCOVERING = 0;
 const FRIENDS = 1;
 const MESSAGES = 2;
+
+
+function mapDispatchToPros(dispatch) {
+	return bindActionCreators(ActionCreators, dispatch);
+}
 
 function configureStore(initialState) {
     const enhancer = compose(
@@ -28,7 +35,7 @@ function configureStore(initialState) {
 
 const store = configureStore({});
 
-class AddUser extends React.Component {
+class AddUser extends Component {
 
     constructor(props) {
         super(props);
@@ -39,7 +46,7 @@ class AddUser extends React.Component {
 	}
 }
 
-class Footer extends React.Component {
+class Footer extends Component {
 
     render() {
         return (
@@ -52,7 +59,7 @@ class Footer extends React.Component {
     }
 }
 
-class Like extends React.Component {
+class Like extends Component {
 
     render () {
         return (
@@ -61,7 +68,7 @@ class Like extends React.Component {
     }
 }
 
-class Discuss extends React.Component {
+class Discuss extends Component {
 
 	render () {
 		return (
@@ -70,7 +77,7 @@ class Discuss extends React.Component {
 	}
 }
 
-class Introduce extends React.Component {
+class Introduce extends Component {
 
 	render () {
 		return (
@@ -79,7 +86,7 @@ class Introduce extends React.Component {
 	}
 }
 
-class SocialActionBar extends React.Component {
+class SocialActionBar extends Component {
 
     constructor(props) {
         super(props);
@@ -96,7 +103,7 @@ class SocialActionBar extends React.Component {
     }
 }
 
-class Friend extends React.Component {
+class Friend extends Component {
 
     constructor(props) {
         super(props);
@@ -117,7 +124,7 @@ class Friend extends React.Component {
     }
 }
 
-class User extends React.Component {
+class User extends Component {
     constructor(props) {
         super(props);
     }
@@ -137,7 +144,7 @@ class User extends React.Component {
     }
 }
 
-class FriendsButton extends React.Component {
+class FriendsButton extends Component {
 
     constructor(props) {
         super(props);
@@ -156,7 +163,7 @@ class FriendsButton extends React.Component {
     }
 }
 
-class FriendsList extends React.Component {
+class FriendsList extends Component {
 
     constructor(props) {
         super(props);
@@ -182,7 +189,7 @@ class FriendsList extends React.Component {
     }
 }
 
-class UserList extends React.Component {
+class UserList extends Component {
 
     render() {
         let userList = [];
@@ -220,7 +227,7 @@ class UserList extends React.Component {
     }
 }
 
-class Main extends React.Component {
+class Main extends Component {
     constructor(props) {
         super(props);
     }
@@ -234,7 +241,7 @@ class Main extends React.Component {
     }
 }
 
-class Vibe extends React.Component {
+class Vibe extends Component {
 
   constructor(props) {
       super(props);
@@ -285,7 +292,7 @@ class Vibe extends React.Component {
   }
 }
 
-export default class App extends React.Component {
+export default class App extends Component {
     render () {
         return (
             <Provider store={store}>
