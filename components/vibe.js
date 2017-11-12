@@ -17,7 +17,12 @@ export default class Vibe extends Component {
 
 		this.state = {
 			appState: DISCOVERING,
+			friendsDb: [],
 		}
+	}
+
+	addFriend (friend) {
+		this.state.friendsDb.push(friend);
 	}
 
 	renderFactory (state) {

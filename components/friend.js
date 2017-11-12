@@ -11,7 +11,7 @@ export default class Friend extends Component {
 		return (
 			<View key={this.props.idx}>
 				<View style={{flexDirection: 'row'}}>
-					<Image source={require("./img1_2x.jpg")}></Image>
+					<Image source={require("../img1_2x.jpg")}></Image>
 					<View>
 						<Text>{this.props.name}</Text>
 						<Text>{this.props.status}</Text>

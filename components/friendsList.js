@@ -1,18 +1,25 @@
 import React, {Component} from 'react';
 import { Text, View} from 'react-native';
-export default class FriendsList extends Component {
+import { connect } from 'react-redux';
+import Friend from "./friend";
+
+class FriendsList extends Component {
 
 	constructor(props) {
 		super(props);
 
-		this.state = {friendsList: []};
 	}
 
 	render() {
-		if (this.state.friendsList.length > 0) {
+		if (this.props.friends.length > 0) {
+			let friendsListRendered = [];
+			for(var idx in this.props.friends) {
+				let friend = this.props.friends[idx];
+				friendsListRendered.push(<Friend key={friend.name} name={friend.name} status={"Some status"} />);
+			}
 			return (
 				<View>
-					{this.state.friendsList}
+					{friendsListRendered}
 				</View>
 			);
 		} else {
@@ -22,6 +29,19 @@ export default class FriendsList extends Component {
 				</View>
 			)
 		}
-
 	}
 }
+
+const mapStateToProps = (state) => {
+	let friendsList = [];
+
+	for(let k in state.addedFriends) {
+		friendsList.push({name: k});
+	}
+
+	return {
+		friends: friendsList
+	}
+};
+
+export default connect(mapStateToProps)(FriendsList);
