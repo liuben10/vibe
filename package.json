@@ -7,7 +7,11 @@
     "jest-expo": "^22.0.0",
     "react-test-renderer": "16.0.0-beta.5"
   },
-  "rnpm": { "assets": [ "resources/icons" ] },
+  "rnpm": {
+    "assets": [
+      "resources/icons"
+    ]
+  },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
     "start": "react-native-scripts start",
@@ -26,6 +30,8 @@
     "react-native-elements": "^0.18.2",
     "react-native-navbar": "^2.1.0",
     "react-native-vector-icons": "^4.4.2",
+    "react-redux": "^5.0.6",
+    "redux-thunk": "^2.2.0",
     "watchman": "0.1.8"
   }
 }

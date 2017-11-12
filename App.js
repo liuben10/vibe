@@ -1,44 +1,32 @@
 import React from 'react';
+import { AppRegistry } from 'react-native';
 import { StyleSheet, Text, View, Image, ScrollView} from 'react-native';
 import { Header, Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import DiscoverButton from './discover/discoverButton';
-import Banner from './Banner';
+import DiscoverButton from './components/discover/discoverButton';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, combinReduxers, compose } from 'redux';
+import createLogger from 'redux-logger';
+import thunkMiddleware from 'redux-thunk';
+import reducer from './reducers';
 
-/**
- * For reference on how to define constructors and stuff.
- *
- * class NavBar extends React.Component {
-
-    constructor(props) {
-        super(props);
-
-        this.state = {showText: true};
-        setInterval(() => {
-            this.setState(previousState => {
-                return {showText: !previousState.showText};
-            });
-        }, 1000);
-    }
-
-    render() {
-        let display = this.state.showText ? this.props.text : ' ';
-        return (
-            <Text>{display}</Text>
-        );
-    }
-}
- */
+const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__});
 
 const DISCOVERING = 0;
 const FRIENDS = 1;
 const MESSAGES = 2;
 
-
-class TemporaryDatabase extends React.Component {
-
+function configureStore(initialState) {
+    const enhancer = compose(
+        applyMiddleware(
+            thunkMiddleware,
+            loggerMiddleware
+        )
+    );
+    return createStore(reducer, initialState, enhancer);
 }
 
+const store = configureStore({});
 
 class AddUser extends React.Component {
 
@@ -176,10 +164,6 @@ class FriendsList extends React.Component {
         this.state = {friendsList: []};
     }
 
-    addFriend(user) {
-        this.state.friendsList.push(user);
-    }
-
     render() {
         if (this.state.friendsList.length > 0) {
 			return (
@@ -205,6 +189,7 @@ class UserList extends React.Component {
         for(let i = 0; i < 4; i++) {
             userList.push(<User key={i} description={"A description: " + i}></User>);
         }
+
         if (userList.length > 0) {
 			return (
                 <View>
@@ -249,13 +234,14 @@ class Main extends React.Component {
     }
 }
 
-export default class App extends React.Component {
+class Vibe extends React.Component {
 
   constructor(props) {
       super(props);
 
       this.state = {
-          appState: DISCOVERING
+          appState: DISCOVERING,
+          freindsDb: [],
       }
   }
 
@@ -265,6 +251,9 @@ export default class App extends React.Component {
       }
   };
 
+  addFriend (friend) {
+      this.state.freindsDb.push(friend);
+  }
 
   render() {
 
@@ -294,6 +283,16 @@ export default class App extends React.Component {
       </View>
     );
   }
+}
+
+export default class App extends React.Component {
+    render () {
+        return (
+            <Provider store={store}>
+                <Vibe />
+            </Provider>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
