@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { View} from 'react-native';
-//TODO use ListView
 import { Button } from 'react-native-elements';
 
 class DiscoverButton extends Component {

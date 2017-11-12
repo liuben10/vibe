@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { View} from 'react-native';
-//TODO use ListView
 import { Button } from 'react-native-elements';
 
 export default class FriendsButton extends Component {

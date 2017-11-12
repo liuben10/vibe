@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { Text, View, Image} from 'react-native';
-//TODO use ListView
 import { Button } from 'react-native-elements';
 
 export default class User extends Component {
