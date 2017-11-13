@@ -5,6 +5,8 @@ TODO: Fill out this readme as you go through.
 
 1. Run this command: `git clone https://github.com/liuben10/vibe.git`
 
+Delete me as part of this exercise.
+
 Instructions are left intentionally vague so that you have to learn how to figure out how to setup this project.
 
 Lookup how to clone a git repository to find out how to clone this repository.
