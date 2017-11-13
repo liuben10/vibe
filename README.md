@@ -12,6 +12,8 @@ TODO: Fill out this readme as you go through.
 
 
 1. Run this command: `git clone https://github.com/liuben10/vibe.git`
+2. Run npm install.
+
 
 Delete me as part of this exercise.
 
