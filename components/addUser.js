@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet} from 'react-native';
+import { StyleSheet, View, Text} from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -10,7 +10,10 @@ export default class AddUser extends Component {
 	}
 
 	render() {
-		return (<Icon name="user" size={15} style={styles.leftComponent}/>)
+		return (
+		<View>
+			<Text>Add User</Text>
+		</View>)
 	}
 }
 
