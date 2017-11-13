@@ -15,12 +15,12 @@ class FriendsList extends Component {
 			let friendsListRendered = [];
 			for(var idx in this.props.friends) {
 				let friend = this.props.friends[idx];
-				friendsListRendered.push(<Friend key={friend.name} name={friend.name} status={"Some status"} />);
+				friendsListRendered.push(<Friend name={friend.name} status={"Some status"} />);
 			}
 			return (
-				<View>
+				<ScrollView>
 					{friendsListRendered}
-				</View>
+				</ScrollView>
 			);
 		} else {
 			return (

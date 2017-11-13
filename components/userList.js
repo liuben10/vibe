@@ -8,7 +8,7 @@ export default class UserList extends Component {
 	render() {
 		let userList = [];
 		for(let i = 0; i < 4; i++) {
-			userList.push(<User key={i} description={"A description: " + i}></User>);
+			userList.push(<User key={i} name={"ARandomName" + i} description={"A description: " + i}></User>);
 		}
 
 		if (userList.length > 0) {
