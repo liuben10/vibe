@@ -18,9 +18,9 @@ class FriendsList extends Component {
 				friendsListRendered.push(<Friend name={friend.name} status={"Some status"} />);
 			}
 			return (
-				<ScrollView>
+				<View>
 					{friendsListRendered}
-				</ScrollView>
+				</View>
 			);
 		} else {
 			return (

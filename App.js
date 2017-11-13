@@ -31,10 +31,6 @@ export default class App extends Component {
 
     constructor(props) {
         super(props);
-        store.dispatch(addFriends([{name: 'foo'}]));
-		// store.dispatch({type: ADD_FRIEND, friend: {name: 'foo'}});
-
-		console.log(store.getState());
     }
 
     render () {
