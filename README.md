@@ -1,5 +1,13 @@
 ###Instructions
 
+
+Gitflow steps:
+
+1. Make change to file.
+2. Stage change for commits. (git add)
+3. Create commit (git commit)
+4. Push commit to master (git push origin master)
+
 TODO: Fill out this readme as you go through.
 
 
